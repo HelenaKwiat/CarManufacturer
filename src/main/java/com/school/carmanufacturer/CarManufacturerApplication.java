@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class CarManufacturerApplication {
-    //TODO implement driver
+    //TODO implement whole main menu/user interface
     public static void main(String[] args) {
         SpringApplication.run(CarManufacturerApplication.class, args);
 

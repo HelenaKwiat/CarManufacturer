@@ -3,6 +3,7 @@ package com.school.carmanufacturer;
 import java.util.ArrayList;
 
 public class Manufacturer {
+    //TODO implement progress updates for manufacturers
     private String username;
     private String password;
     private ArrayList<Order> orders;
