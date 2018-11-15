@@ -1,20 +1,26 @@
 package com.school.carmanufacturer;
 
+import java.util.ArrayList;
+
 public abstract class Car {
-  private String model;
-  private Integer price;
-  //TODO implement individual cars
-  public Car(String  _model){
-      model = _model;
-  }
+    private String model;
+    private Integer price;
+    private String color;
+    private String drive;
+    private int quantity;
 
-  protected abstract void construct();
+    //TODO implement individual cars
+    public Car(String _model) {
+        model = _model;
+    }
 
-  protected abstract Integer getPrice();
+    protected abstract void construct();
 
-  public void setModel(String _model){
-      model = _model;
-  }
+    protected abstract Integer getPrice();
+
+    public void setModel(String _model) {
+        model = _model;
+    }
 
 //    public void setPrice(Integer price) {
 //        this.price = price;
@@ -24,7 +30,34 @@ public abstract class Car {
 //        return price;
 //    }
 
-    public String getModel(){
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setDrive(String drive) {
+        this.drive = drive;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getModel() {
         return model;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getDrive() {
+        return drive;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
+
+

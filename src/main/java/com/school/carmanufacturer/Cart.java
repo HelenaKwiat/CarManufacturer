@@ -9,14 +9,28 @@ public class Cart {
     public Cart(Order _order){
         order = _order;
     }
-    public void displayCart(){
+    @Override
+    public String toString(){
         ArrayList<OrderCar> items = order.getOrder();
-        System.out.println("--------------------CART-------------------");
+        StringBuilder string = new StringBuilder();
+        string.append("--------------------CART-------------------\n");
         for(OrderCar item: items){
-            System.out.println(items.indexOf(item)+1 + ") " + "MODEL: " + item.getOrderCar().getModel() + " QUANTITY: " + item.getQuantity() + " PRICE PER UNIT: " + item.getOrderCar().getPrice());
+            string.append(items.indexOf(item)+1);
+            string.append(") ");
+            string.append( "MODEL: ").append(item.getOrderCar().getModel());
+            //string.append(" QUANTITY: ");
+            string.append(item.getQuantity());
+            string.append(" PRICE PER UNIT: ");
+            string.append(item.getOrderCar().getPrice());
+            string.append(" Color: ");
+            string.append(item.getOrderCar().getColor());
+            string.append(" Drive: ");
+            string.append(item.getOrderCar().getDrive());
+            string.append("\n");
         }
         order.setOrderTotal(order.getOrder());
-        System.out.print("Total: " + order.getOrderTotal());
+        string.append("Total: ").append( order.getOrderTotal());
+        return string.toString();
     }
 
     public void setItems(OrderCar addItem){}

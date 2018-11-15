@@ -2,17 +2,18 @@ package com.school.carmanufacturer;
 
 public class OrderCar {
     private Car car;
-    private Integer quantity;
+    private Integer quantity = 1;
     //private String color;
     private Integer price;
     private Order order;
 
     public OrderCar(Car _car, Integer _quantity, Order _order){
         car = _car;
-        quantity = _quantity;
+        //quantity = _quantity;
         //color = _color;
         order = _order;
         //price = _orderCar.getPrice();
+        order.addCar(this);
     }
 
 
