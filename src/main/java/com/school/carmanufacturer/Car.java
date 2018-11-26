@@ -7,20 +7,43 @@ public abstract class Car {
     private Integer price;
     private String color;
     private String drive;
-    private int quantity;
+    private int quantity = 1;
+    private ArrayList<String> colors = new ArrayList<>();
+    private ArrayList<String> drives = new ArrayList<>();
+    private Menu colorMenu = new Menu();
+    private Menu driveMenu = new Menu();
+    private static ArrayList<Car> models = new ArrayList<>();
+
+    static {
+        models.add(new S6());
+        models.add(new S3());
+        models.add(new A4());
+        models.add(new A5());
+    }
+
 
     //TODO implement individual cars
     public Car(String _model) {
         model = _model;
     }
 
-    protected abstract void construct();
+    public void getQuantityInput(){
+        System.out.println("How Many Would you like?");
+        int input = Integer.parseInt(Menu.getScanner().nextLine());
+        setQuantity(input);
+    }
+
+    protected abstract Car construct();
 
     protected abstract Integer getPrice();
+
+    protected abstract void createSubMenu();
 
     public void setModel(String _model) {
         model = _model;
     }
+
+    protected abstract void setColors();
 
 //    public void setPrice(Integer price) {
 //        this.price = price;
@@ -31,8 +54,8 @@ public abstract class Car {
 //    }
 
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColor(String _color) {
+        color = _color;
     }
 
     public void setDrive(String drive) {
@@ -55,8 +78,30 @@ public abstract class Car {
         return drive;
     }
 
+
+
     public int getQuantity() {
         return quantity;
+    }
+
+    public ArrayList<String> getDrives() {
+        return drives;
+    }
+
+    public ArrayList<String> getColors() {
+        return colors;
+    }
+
+    public Menu getColorMenu() {
+        return colorMenu;
+    }
+
+    public static ArrayList<Car> getModels() {
+        return models;
+    }
+
+    public Menu getDriveMenu() {
+        return driveMenu;
     }
 }
 

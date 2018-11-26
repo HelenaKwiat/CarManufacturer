@@ -7,13 +7,16 @@ public class PayPal extends Payment {
     private String password;
     private int orderNumber;
 
-    public PayPal(String _username, String _password, int _orderNumber){
-        username = _username;
-        password = _password;
-        orderNumber = _orderNumber;
+   public void construct(Order _order) {
+        setOrder(_order);
+        getCredentials();
         setPaid(true);
+        getOrder().getCustomer().getOrders().add(getOrder());
 
     }
+
+
+
 
     public void setOrderNumber(int orderNumber) {
         this.orderNumber = orderNumber;
@@ -27,10 +30,6 @@ public class PayPal extends Payment {
         this.username = username;
     }
 
-    @Override
-    public void setPaid(Boolean _paid) {
-        super.setPaid(_paid);
-    }
 
     public int getOrderNumber() {
         return orderNumber;
@@ -44,8 +43,20 @@ public class PayPal extends Payment {
         return username;
     }
 
+    public void getCredentials(){
+        System.out.println("Enter Your PayPal UserName");
+        setUsername(Menu.getScanner().nextLine());
+        System.out.println("Enter Your PayPal Password");
+        setPassword(Menu.getScanner().nextLine());
+    }
+
     @Override
     public Boolean getPaid() {
         return super.getPaid();
+    }
+
+    @Override
+    public String toString() {
+        return "PayPal";
     }
 }

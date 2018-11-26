@@ -8,88 +8,161 @@ import java.util.*;
 @SpringBootApplication
 public class CarManufacturerApplication {
     //TODO implement whole main menu/user interface
-    public static void main(String[] args) {
-        SpringApplication.run(CarManufacturerApplication.class, args);
-
-          Customer customer = new Customer("hkwiat", "password");
-//
-//        Order order = new Order(customer, 0);
-//
-//        OrderCar orderCar = new OrderCar(new S6(), 3, order);
-//        order.addCar(orderCar);
-//        OrderCar orderCar1 = new OrderCar(new S6(), 4, order);
-//        order.addCar(orderCar1);
-
-//        System.out.println(new Cart(order));
-//
-        Menu menu = new Menu();
-        Menu carMenu = new Menu();
-        new S6().createSubMenu();
-        Order order = new Order(customer, 0);
-        carMenu.add(new MenuOption("S6") {
-          @Override
-          public void doAction() {
-                //System.out.println("here");
-                S6 s6 = new S6();
-                //System.out.println("there");
-                s6.getS6Colors().question();
-                //System.out.println("there");
-                new OrderCar(s6, s6.getQuantity(), order);
-          }
-      });
-
-      carMenu.add(new MenuOption("S3") {
-          @Override
-          public void doAction() {
-              new S3();
-          }
-      });
-
-        carMenu.add(new MenuOption("A4") {
-            @Override
-            public void doAction() {
-                new A4();
-            }
-        });
-
-        carMenu.add(new MenuOption("A5") {
-            @Override
-            public void doAction() {
-                new A5();
-
-            }
-        });
+    private static Menu paymentMenu = new Menu();
+    private static Menu menu = new Menu();
+    private static Menu carMenu = new Menu();
+    private static Menu loginMenu = new Menu();
+    private static Menu manufacturerMenu = new Menu();
+    private static User user;
+    private static Order order;
+    private static int orderNumber = 0;
+    private static ArrayList<Car> cars = Car.getModels();
 
 
-       menu.add(new MenuOption("Browse Cars") {
-           @Override
-           public void doAction() {
-               carMenu.question();
-           }
-       });
-
-       menu.add(new MenuOption("View Cart") {
-           @Override
-           public void doAction() {
-                System.out.println(new Cart(order));
-           }
-       });
-
-       menu.add(new MenuOption("Pay") {
-           @Override
-           public void doAction() {
-
-           }
-       });
-
-       menu.add(new MenuOption("Have an order? Track Status") {
-           @Override
-           public void doAction() {
-
-           }
-       });
-
-       menu.loop();
+    public static void createNewPaymentMenu(){
+        for(Payment payment : Payment.getPaymentTypes()){
+            paymentMenu.add(new MenuOption(payment.toString()) {
+                @Override
+                public void doAction() {
+                    payment.construct(order);
+                }
+            });
+        }
 
     }
+
+    public static void createNewCarMenu(){
+        for(Car car : cars){
+            carMenu.add(new MenuOption(car.toString()) {
+                @Override
+                public void doAction() {
+                    Car newCar = car.construct();
+                    newCar.setColors();
+                    newCar.createSubMenu();
+                    newCar.getColorMenu().question();
+                    order.getOrder().add(newCar);
+
+                }
+            });
+        }
+    }
+
+    public static void createMenu() {
+        menu.add(new MenuOption("Browse Cars") {
+            @Override
+            public void doAction() {
+                if(order.getProgresss().equals("Paid")){
+                    createOrder();
+                    carMenu.question();
+                }
+                else {
+                    carMenu.question();
+                }
+            }
+        });
+
+        menu.add(new MenuOption("View Cart") {
+            @Override
+            public void doAction() {
+                System.out.println(order);
+            }
+        });
+
+        menu.add(new MenuOption("Pay") {
+            @Override
+            public void doAction() {
+                System.out.println(order);
+                paymentMenu.question();
+
+            }
+        });
+
+        menu.add(new MenuOption("View Order Status") {
+            @Override
+            public void doAction() {
+                //System.out.println(order.getProgresss());
+                Customer customer = (Customer) user;
+                if(customer.getOrders().size() == 0){
+                    System.out.println("Order Not Yet Placed");
+                }
+                else {
+                    customer.enumOrder();
+                    order.getOrderStatus();
+                }
+            }
+        });
+
+    }
+
+    public static void createLoginMenu() {
+        loginMenu.add(new MenuOption("Customer Sign Up") {
+            @Override
+            public void doAction() {
+                user = new Customer().getNewCustomer();
+                createOrder();
+                menu.loop();
+            }
+        });
+        loginMenu.add(new MenuOption("Customer Login") {
+            @Override
+            public void doAction() {
+                user = new Customer().getCredentials();
+                createOrder();
+                menu.loop();
+            }
+        });
+
+        loginMenu.add(new MenuOption("Manufacturer Login") {
+            @Override
+            public void doAction() {
+                Manufacturer man = new Manufacturer();
+                man.setUsername("h");
+                man.setPassword("h");
+                Manufacturer.getManufacturers().add(man);
+                user = new Manufacturer().getCredentials();
+                manufacturerMenu.loop();
+            }
+        });
+
+
+    }
+
+    public static void createOrder(){
+        if (user instanceof Customer) {
+            Customer customer = (Customer) user;
+            orderNumber = orderNumber + 1;
+            order = new Order(customer, orderNumber );
+        }
+    }
+
+    public static void createManufacturerMenu(){
+        manufacturerMenu.add(new MenuOption("Update Order Status") {
+            @Override
+            public void doAction() {
+                Manufacturer man = (Manufacturer) user;
+                man.getOrderUpdateInput();
+            }
+        });
+
+        manufacturerMenu.add(new MenuOption("Delete Order") {
+            @Override
+            public void doAction() {
+                Manufacturer man = (Manufacturer) user;
+                man.getOrderDeletionInput();
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(CarManufacturerApplication.class, args);
+        createLoginMenu();
+        createMenu();
+        createNewCarMenu();
+        createNewPaymentMenu();
+        createManufacturerMenu();
+        loginMenu.loop();
+
+    }
+
 }
+

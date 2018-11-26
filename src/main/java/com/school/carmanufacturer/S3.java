@@ -4,42 +4,91 @@ import java.util.ArrayList;
 
 public class S3 extends Car{
 
+    private ArrayList<String> colors = new ArrayList<>();
+    private ArrayList<String> drives = new ArrayList<>();
+
     private Integer price = 50000;
-    private ArrayList<String> colors;
-    private ArrayList<String> drives;
+
+
+
+
+
+
+
+
 
     public S3(){
         super("S3");
-        construct();
+        //construct();
 
 
     }
+
+    public void setColors(){
+        //System.out.println("adding colors");
+        colors.add("Blue");
+        colors.add("Magenta");
+        colors.add("Black");
+        colors.add("Green");
+        colors.add("Red");
+        drives.add("All Wheel");
+        drives.add("Two Wheel");
+    }
+
+    public void createSubMenu(){
+
+
+        for(String color: getColors()){
+            //System.out.println("color added");
+            getColorMenu().add(new MenuOption(color) {
+                @Override
+                public void doAction() {
+                    setColor(color);
+                   getDriveMenu().question();
+                }
+            });
+        }
+
+
+        for(String drive: getDrives()){
+          getDriveMenu().add(new MenuOption(drive) {
+                @Override
+                public void doAction() {
+                    setDrive(drive);
+
+                    getQuantityInput();
+
+                }
+            });
+        }
+
+    }
     @Override
-    protected void construct(){
-        //chose colors and stuff
+    protected Car construct(){
+        return new S3();
     }
 
     public void setPrice(String _price){}
 
-    public void setColors(ArrayList<String> _colors) {
-        this.colors = colors;
-    }
-
-    public void setDrives(ArrayList<String> drives) {
-        this.drives = drives;
-    }
 
     @Override
     public Integer getPrice() {
         return price;
     }
 
+    @Override
+    public ArrayList<String> getDrives() {
+        return drives;
+    }
+
+    @Override
     public ArrayList<String> getColors() {
         return colors;
     }
 
-    public ArrayList<String> getDrives() {
-        return drives;
+    @Override
+    public String toString() {
+        return "S3";
     }
 }
 

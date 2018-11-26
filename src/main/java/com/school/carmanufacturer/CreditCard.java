@@ -8,14 +8,23 @@ public class CreditCard extends Payment {
     private int cvc;
     private int orderNumber;
 
-    public CreditCard(int _creditCardNumber, String _billingAddress, int _cvc, int _orderNumber){
-        creditCardNumber = _creditCardNumber;
-        billingAddress = _billingAddress;
-        cvc = _cvc;
-        orderNumber = _orderNumber;
+    public void construct(Order _order) {
+        setOrder(_order);
+        getCredentials();
         setPaid(true);
+        getOrder().getCustomer().getOrders().add(getOrder());
+
     }
 
+
+    public void getCredentials(){
+        System.out.println("Enter Your Credit Card Number");
+        setCreditCardNumber(Integer.parseInt(Menu.getScanner().nextLine()));
+        System.out.println("Enter your billing address");
+        setBillingAddress(Menu.getScanner().nextLine());
+        System.out.println("Enter your CVC");
+        setCvc(Integer.parseInt(Menu.getScanner().nextLine()));
+    }
     public void setCreditCardNumber(int creditCardNumber) {
         this.creditCardNumber = creditCardNumber;
     }
@@ -52,5 +61,10 @@ public class CreditCard extends Payment {
     @Override
     public Boolean getPaid() {
         return super.getPaid();
+    }
+
+    @Override
+    public String toString() {
+        return "Credit Card";
     }
 }
