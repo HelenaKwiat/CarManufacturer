@@ -2,6 +2,10 @@ package com.school.carmanufacturer;
 
 import com.school.carmanufacturer.Payment;
 
+/**
+ * To Hold details of individual payment methods
+ */
+
 public class PayPal extends Payment {
     private String username;
     private String password;

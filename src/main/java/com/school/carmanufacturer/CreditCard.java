@@ -2,6 +2,10 @@ package com.school.carmanufacturer;
 
 import com.school.carmanufacturer.Payment;
 
+/**
+ * To Hold details of individual payment methods
+ */
+
 public class CreditCard extends Payment {
     private int creditCardNumber;
     private String billingAddress;

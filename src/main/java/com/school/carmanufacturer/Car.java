@@ -2,6 +2,10 @@ package com.school.carmanufacturer;
 
 import java.util.ArrayList;
 
+/**
+ * Methods to be implemented in cars as well as overarching details that encompass all cars
+ */
+
 public abstract class Car {
     private String model;
     private int price;
@@ -20,7 +24,6 @@ public abstract class Car {
         models.add(new A4());
         models.add(new A5());
     }
-
 
     //TODO implement individual cars
     public Car(String _model) {

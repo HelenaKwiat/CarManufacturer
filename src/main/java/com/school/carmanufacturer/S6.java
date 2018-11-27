@@ -3,7 +3,9 @@ package com.school.carmanufacturer;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * To Hold details of individual cars
+ */
 public class S6 extends Car {
     private Integer price = 100000;
     private ArrayList<String> colors = new ArrayList<>();

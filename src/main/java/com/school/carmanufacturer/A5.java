@@ -1,7 +1,9 @@
 package com.school.carmanufacturer;
 
 import java.util.ArrayList;
-
+/**
+ * To Hold details of individual cars
+ */
 public class A5 extends Car {
     private Integer price = 40000;
     private ArrayList<String> colors = new ArrayList<>();

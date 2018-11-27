@@ -1,7 +1,9 @@
 package com.school.carmanufacturer;
 
 import java.util.ArrayList;
-
+/**
+ * To Hold details of individual cars
+ */
 public class S3 extends Car{
 
     private ArrayList<String> colors = new ArrayList<>();

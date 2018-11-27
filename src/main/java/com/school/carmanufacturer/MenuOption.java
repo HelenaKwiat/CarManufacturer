@@ -1,5 +1,8 @@
 package com.school.carmanufacturer;
 
+/**
+ * abstract class MenuOption to allow doAction to attach actions to menu item
+ */
 public abstract class MenuOption {
     private String option;
 

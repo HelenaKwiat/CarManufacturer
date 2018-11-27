@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
+/**
+ * Menu class to run loop and hold logic to match menu option to entry
+ */
 public class Menu {
     private ArrayList<MenuOption> menuOptions = new ArrayList<>();
     private String exit = "Exit";

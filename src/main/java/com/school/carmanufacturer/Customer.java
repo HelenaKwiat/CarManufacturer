@@ -1,6 +1,9 @@
 package com.school.carmanufacturer;
 
 import java.util.ArrayList;
+/**
+ * To hold details and methods related to Customer users
+ */
 
 public class Customer extends User{
     private String username;
@@ -9,6 +12,13 @@ public class Customer extends User{
     private static ArrayList<Customer> customers = new ArrayList<>();
 
 
+    /**
+     * To find customer in data
+     * @param _username-customer username
+     * @param _password-customer password
+     *
+     * @return - customer
+     */
     public Customer findCustomer(String _username, String _password){
         Customer result;
         for(Customer customer : customers){
@@ -20,6 +30,11 @@ public class Customer extends User{
         System.out.println("Username or Password is Incorrect");
         return new Customer();
     }
+
+    /**
+     * to create new customer
+     * @return - Customer
+     */
     public Customer getNewCustomer(){
         System.out.println("Pick your Username");
         username = Menu.getScanner().nextLine();
@@ -29,6 +44,10 @@ public class Customer extends User{
         return this;
 
     }
+
+    /**
+     * View all orders of Customer
+     */
 
     public void enumOrder(){
 

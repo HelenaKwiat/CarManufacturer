@@ -2,6 +2,9 @@ package com.school.carmanufacturer;
 
 import java.util.ArrayList;
 
+/**
+ * To hold details and methods related to Manufacturer users
+ */
 public class Manufacturer extends User{
     //TODO implement progress updates for manufacturers
     private String username;
@@ -9,7 +12,14 @@ public class Manufacturer extends User{
     private static ArrayList<Manufacturer> manufacturers = new ArrayList<Manufacturer>();
 
 
-
+    /**
+     * To find manufacturer to login
+     * @param _username - Manufacturer username
+     * @param _password - Manufacturer password
+     *
+     * @return - Manufacturer
+     *
+     */
     public Manufacturer findCustomer(String _username, String _password){
         Manufacturer result;
         for(Manufacturer manufacturer : manufacturers){
@@ -22,6 +32,12 @@ public class Manufacturer extends User{
         return new Manufacturer();
     }
 
+    /**
+     * TO Update order progress
+     * @param _orderNumber -number of order
+     *
+     * @param status - string order progress will be updated to
+     */
     public void updateOrder(int _orderNumber, String status){
         for(Order order : Order.getOrders()){
             if(order.getOrderNumber() == (_orderNumber)){

@@ -2,6 +2,10 @@ package com.school.carmanufacturer;
 
 import java.util.ArrayList;
 
+/**
+ * Order Class, to hold all information about orders
+ */
+
 public class Order {
     private Customer customer;
     private ArrayList<Car> order = new ArrayList<Car>();
@@ -16,6 +20,12 @@ public class Order {
         orders.add(this);
         //order = _order;
     }
+
+    /**
+     * Adds selected Car to order
+     * @param _car-car selected to add to order by user
+     *
+     */
 
     public void addCar(Car _car){
         order.add(_car);
@@ -35,7 +45,10 @@ public class Order {
         }
     }
 
-    public void getOrderStatus(){
+    /**
+     * asks for order number to retrieve status
+     */
+    public static void getOrderStatus(){
         System.out.println("Enter the Order Number");
         int input = Integer.parseInt(Menu.getScanner().nextLine());
         for(Order order : orders){
@@ -48,6 +61,10 @@ public class Order {
 
     }
 
+    /**
+     * to Display Cart
+     * @return:String
+     */
     @Override
     public String toString(){
         StringBuilder string = new StringBuilder();

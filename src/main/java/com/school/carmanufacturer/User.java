@@ -1,5 +1,9 @@
 package com.school.carmanufacturer;
 
+/**
+ * Abstract class to ask for user details
+ */
+
 public abstract class User {
 
     public User getCredentials(){

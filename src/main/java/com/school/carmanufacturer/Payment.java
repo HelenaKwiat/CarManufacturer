@@ -2,6 +2,10 @@ package com.school.carmanufacturer;
 
 import java.util.ArrayList;
 
+/**
+ * abstract Class to hold payment details
+ */
+
 public abstract class Payment {
     private static ArrayList<Payment> paymentTypes = new ArrayList<>();
     private Boolean paid;
