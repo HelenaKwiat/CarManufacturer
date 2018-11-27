@@ -41,11 +41,6 @@ public class CreditCard extends Payment {
         this.orderNumber = orderNumber;
     }
 
-    @Override
-    public void setPaid(Boolean _paid) {
-        super.setPaid(_paid);
-    }
-
     public int getCreditCardNumber() {
         return creditCardNumber;
     }
@@ -56,11 +51,6 @@ public class CreditCard extends Payment {
 
     public int getOrderNumber() {
         return orderNumber;
-    }
-
-    @Override
-    public Boolean getPaid() {
-        return super.getPaid();
     }
 
     @Override

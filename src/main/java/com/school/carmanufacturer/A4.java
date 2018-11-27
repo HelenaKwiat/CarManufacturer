@@ -62,7 +62,7 @@ public class A4 extends Car{
 
 
     @Override
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 

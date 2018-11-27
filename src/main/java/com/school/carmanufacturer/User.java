@@ -10,5 +10,5 @@ public abstract class User {
         return findCustomer(_username, _password);
     }
 
-    public abstract User findCustomer(String _userName, String _password);
+    protected abstract User findCustomer(String _userName, String _password);
 }

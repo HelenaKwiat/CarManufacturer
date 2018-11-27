@@ -72,7 +72,7 @@ public class S3 extends Car{
 
 
     @Override
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 

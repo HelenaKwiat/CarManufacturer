@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class Car {
     private String model;
-    private Integer price;
+    private int price;
     private String color;
     private String drive;
     private int quantity = 1;
@@ -35,13 +35,9 @@ public abstract class Car {
 
     protected abstract Car construct();
 
-    protected abstract Integer getPrice();
+    protected abstract int getPrice();
 
     protected abstract void createSubMenu();
-
-    public void setModel(String _model) {
-        model = _model;
-    }
 
     protected abstract void setColors();
 

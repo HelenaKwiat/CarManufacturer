@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Menu {
     private ArrayList<MenuOption> menuOptions = new ArrayList<>();
     private String exit = "Exit";
-    public Menu(){}
     private static Scanner scanner = new Scanner(System.in);
     private String input = " ";
 

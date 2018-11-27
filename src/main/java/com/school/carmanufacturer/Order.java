@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Order {
     private Customer customer;
     private ArrayList<Car> order = new ArrayList<Car>();
-    private Integer orderTotal;
+    private int orderTotal;
     private String progresss = "Order Not Yet Placed";
     private int orderNumber;
     private static ArrayList<Order> orders = new ArrayList<>();
