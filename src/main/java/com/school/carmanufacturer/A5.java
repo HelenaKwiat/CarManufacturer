@@ -17,6 +17,9 @@ public class A5 extends Car {
 
     }
 
+    /**
+     * Adds colors of A5 to colors list to instantiate Menu
+     */
     public void setColors(){
         colors.add("Blue");
         colors.add("Violet");
@@ -27,7 +30,9 @@ public class A5 extends Car {
         drives.add("Two Wheel");
     }
 
-
+    /**
+     * Creates menus to be launched after entering into A5 based on individual colors and drives
+     */
     public void createSubMenu(){
 
 

@@ -20,7 +20,9 @@ public class S6 extends Car {
     public S6(){
         super("S6");
     }
-
+    /**
+     * Adds colors of S6 to colors list to instantiate Menu
+     */
     public void setColors(){
         colors.add("Blue");
         colors.add("Orange");
@@ -31,6 +33,9 @@ public class S6 extends Car {
         drives.add("Two Wheel");
 
     }
+    /**
+     * Creates menus to be launched after entering into S6 based on individual colors and drives
+     */
     public void createSubMenu(){
 
 

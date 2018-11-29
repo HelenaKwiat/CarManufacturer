@@ -5,7 +5,10 @@ package com.school.carmanufacturer;
  */
 
 public abstract class User {
-
+    /**
+     * To get login information from user
+     * @return - instance of user
+     */
     public User getCredentials(){
         System.out.println("Enter your Username");
         String _username = Menu.getScanner().nextLine();

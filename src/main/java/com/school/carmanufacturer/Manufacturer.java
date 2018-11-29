@@ -48,6 +48,10 @@ public class Manufacturer extends User{
         }
     }
 
+    /**
+     *With order number, delete order
+     * @param _orderNumbeer - number of order
+     */
     public void deleteOrder(int _orderNumbeer){
         for(Order order : Order.getOrders()){
             if(order.getOrderNumber() == _orderNumbeer){
@@ -58,6 +62,9 @@ public class Manufacturer extends User{
         System.out.println("Order Deleted!");
     }
 
+    /**
+     * get information needed to update order from user
+     */
     public void getOrderUpdateInput(){
         System.out.println("Enter the Order you Would like to update");
         int input = Integer.parseInt(Menu.getScanner().nextLine());
@@ -65,7 +72,9 @@ public class Manufacturer extends User{
         String status = Menu.getScanner().nextLine();
         updateOrder(input, status);
     }
-
+    /**
+     * get information needed to delete order from user
+     */
     public void getOrderDeletionInput(){
         System.out.println("Enter the Order you Would like to update");
         int input = Integer.parseInt(Menu.getScanner().nextLine());

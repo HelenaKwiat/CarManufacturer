@@ -21,6 +21,9 @@ public class CreditCard extends Payment {
     }
 
 
+    /**
+     * get payment information from user
+     */
     public void getCredentials(){
         System.out.println("Enter Your Credit Card Number");
         setCreditCardNumber(Integer.parseInt(Menu.getScanner().nextLine()));

@@ -25,7 +25,9 @@ public class S3 extends Car{
 
 
     }
-
+    /**
+     * Adds colors of S3 to colors list to instantiate Menu
+     */
     public void setColors(){
         //System.out.println("adding colors");
         colors.add("Blue");
@@ -36,7 +38,9 @@ public class S3 extends Car{
         drives.add("All Wheel");
         drives.add("Two Wheel");
     }
-
+    /**
+     * Creates menus to be launched after entering into S3 based on individual colors and drives
+     */
     public void createSubMenu(){
 
 

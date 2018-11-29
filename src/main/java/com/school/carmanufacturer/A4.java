@@ -16,6 +16,9 @@ public class A4 extends Car{
         //construct();
     }
 
+    /**
+     * Adds colors of A4 to colors list to instantiate Menu
+     */
     public void setColors(){
         colors.add("Blue");
         colors.add("Pink");
@@ -26,7 +29,9 @@ public class A4 extends Car{
         drives.add("Two Wheel");
 
     }
-
+    /**
+     * Creates menus to be launched after entering into A4 based on individual colors and drives
+     */
     public void createSubMenu(){
 
 

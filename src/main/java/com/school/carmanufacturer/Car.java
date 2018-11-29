@@ -30,6 +30,9 @@ public abstract class Car {
         model = _model;
     }
 
+    /**
+     * get input from user for how many they would like
+     */
     public void getQuantityInput(){
         System.out.println("How Many Would you like?");
         int input = Integer.parseInt(Menu.getScanner().nextLine());

@@ -15,6 +15,10 @@ public class Menu {
     public void add(MenuOption option){
         this.menuOptions.add(option);
     }
+
+    /**
+     * controlling Menu loop until exited
+     */
     public void loop(){
             //scanner.useDelimiter("\\n");
             while(true){
@@ -31,6 +35,10 @@ public class Menu {
             }
 
     }
+
+    /**
+     * information within loop, menu details and logic to select and execute menuOption
+     */
     public void question() {
             System.out.println(this);
         //System.out.println(input);
